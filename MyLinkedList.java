@@ -45,7 +45,7 @@ public class MyLinkedList<E> {
      start = null;
      end = null;
    }
-   
+
    public int size() {
      return length;
    }
@@ -62,6 +62,28 @@ public class MyLinkedList<E> {
      }
      return ans + "]";
    }
+
+   //Adds a node at the end of the list, used boolean
+  	public boolean add(E value) {
+  		Node newNode = new Node(value); //make new node
+  		if (size() == 0) {
+  			start = newNode;
+  			end = newNode; //start and end both become this
+  			length = 1;
+  		}
+      else {
+  			newNode.setPrev(end);
+  			length += 1;
+  			end.setNext(newNode);
+  			//the new node is the end
+  			end = newNode;
+  		}
+  		return true;
+  	}
+
+    
+
+
 
 
 
