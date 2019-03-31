@@ -31,27 +31,28 @@ public class MyLinkedList<E> {
   }
 
 
-  private int length;
+  private int size;
   private Node start,end;
 
    //Empty list constructor
    public MyLinkedList() {
-     length = 0;
+     size = 0;
    }
 
    //Reset list to empty state
    public void clear() {
-     length = 0;
+     size = 0;
      start = null;
      end = null;
    }
 
    public int size() {
-     return length;
+     return size;
    }
 
+//tostring
    public String toString() {
-     if (length == 0) {
+     if (size == 0) {
        return "[]";
      }
      Node current = start;
@@ -64,16 +65,16 @@ public class MyLinkedList<E> {
    }
 
    //Adds a node at the end of the list, used boolean
-  	public boolean add(E value) {
-  		Node newNode = new Node(value); //make new node
+  	public boolean add(E val) {
+  		Node newNode = new Node(val); //make new node
   		if (size() == 0) {
   			start = newNode;
   			end = newNode; //start and end both become this
-  			length = 1;
+  			size = 1;
   		}
       else {
   			newNode.setPrev(end);
-  			length += 1;
+  			size += 1;
   			end.setNext(newNode);
   			//the new node is the end
   			end = newNode;
@@ -88,14 +89,26 @@ public class MyLinkedList<E> {
   		end.setNext(other.start); //set end, start of next one
   		other.start.setPrev(end); //set the previous of next start, this end
   		end = other.end; //set the end to the other end
-  		length = size() + other.size(); //add the sizes
-  		other.length = 0; //set stuff to null
+  		size = size() + other.size(); //add the sizes
+  		other.size = 0; //set stuff to null
   		other.start = null;
   		other.end = null;
   	}
 
-
-
+    //remove the 1st element of the list, and return that value.
+    public E removeFront() {
+      E ogstart = start.getData(); //get stat from start
+      if (size() == 1) {
+        start = null; //set everything null
+        end = null;
+      }
+      else {
+        start = start.next(); //start is the next one
+        start.setPrev(null); //set the one  before null
+      }
+      size--; //reduce size
+      return ogstart;
+    }
 
 
 
