@@ -81,7 +81,18 @@ public class MyLinkedList<E> {
   		return true;
   	}
 
-    
+    //in O(1) time, connect the other list to the end of this list.
+    //The other list is then reset to size 0 (do not wipe out the nodes, just disconnect them.)
+    //This is how you will merge lists together for your radix sort.
+    public void extend(MyLinkedList<E> other) {
+  		end.setNext(other.start); //set end, start of next one
+  		other.start.setPrev(end); //set the previous of next start, this end
+  		end = other.end; //set the end to the other end
+  		length = size() + other.size(); //add the sizes
+  		other.length = 0; //set stuff to null
+  		other.start = null;
+  		other.end = null;
+  	}
 
 
 
