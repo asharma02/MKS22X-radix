@@ -36,7 +36,6 @@ public class Radix {
   }
 
 
-
 public static int findlongest(int[] data) { //length of largest number in the array
   int max = Math.abs(data[0]);
   for(int i = 1; i < data.length ; i++){ //uses numdigits
@@ -48,9 +47,6 @@ public static int findlongest(int[] data) { //length of largest number in the ar
 }
 
 
-
-
-
   public static void radixsort(int[]data){
         @SuppressWarnings("unchecked")
         MyLinkedList<Integer>[] buckets = new MyLinkedList[20];
@@ -59,7 +55,6 @@ public static int findlongest(int[] data) { //length of largest number in the ar
             buckets[i] = new MyLinkedList<Integer>(); //make buckets
           }
         }
-
         int passthroughs = findlongest(data);//how many pass trhoguhs
         for( int i = 1; i <= passthroughs; i++){
           for(int j = 0; j < data.length ; j++){
@@ -77,7 +72,7 @@ public static int findlongest(int[] data) { //length of largest number in the ar
             for(int k = 1; k <= x; k++){
               int addition = buckets[j].removeFront(); //remove the smallest one
               data[count] = addition; //make data  eqaul to this smallest one
-              count++; //just iterate until all are added in order
+              count++;//just iterate until all are added in order
             }
           }
           //System.out.println(Arrays.toString(data));
