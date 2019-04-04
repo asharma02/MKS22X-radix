@@ -80,7 +80,6 @@ public static int findlongest(int[] data) { //length of largest number in the ar
               count++; //just iterate until all are added in order
             }
           }
-
           //System.out.println(Arrays.toString(data));
         }
     }
