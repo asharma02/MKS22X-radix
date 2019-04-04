@@ -2,7 +2,7 @@ public class MyLinkedList<E> {
   private class Node{
   	  private E data;
   	  private Node next,prev;
-  		public Node(E value) {
+  		public Node(E value) { //NODE STUFF FROM LAST LAB
   			data = value;
   		}
   		public E getData() {
