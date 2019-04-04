@@ -1,12 +1,8 @@
 import java.util.*;
 
-
-
 public class Radix {
 
 //HELPERRRS
-
-
 
   public static int finddigit(int x, int i){ //return the digit given by i
     if(i > numDigits(x)){ //check if invalid i
